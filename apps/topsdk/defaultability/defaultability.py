@@ -246,6 +246,11 @@ class Defaultability:
     def taobao_appstore_subscribe_get(self, request: BaseRequest):
         return self._client.execute(request.get_api_name(), request.to_dict(), request.get_file_param_dict())
     """
+        物流详情查询
+    """
+    def taobao_logistics_instant_trace_search(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
+    """
         删除SKU
     """
     def taobao_item_sku_delete(self, request: BaseRequest, session: str):
@@ -419,6 +424,16 @@ class Defaultability:
         添加单个物流宝商品
     """
     def taobao_wlb_item_add(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
+    """
+        家装业务查询物流公司api
+    """
+    def taobao_wlb_order_jz_query(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
+    """
+        家装发货接口
+    """
+    def taobao_wlb_order_jz_consign(self, request: BaseRequest, session: str):
         return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
     """
         拆合单结果回传接口

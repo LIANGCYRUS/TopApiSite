@@ -56,10 +56,25 @@ class Ability648:
     def taobao_trade_confirmfee_get(self, request: BaseRequest, session: str):
         return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
     """
+        物流流转信息查询
+    """
+    def taobao_logistics_trace_search(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
+    """
         查询物流公司信息
     """
     def taobao_logistics_companies_get(self, request: BaseRequest):
         return self._client.execute(request.get_api_name(), request.to_dict(), request.get_file_param_dict())
+    """
+        批量查询物流订单,返回详细信息
+    """
+    def taobao_logistics_orders_detail_get(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
+    """
+        批量查询物流订单
+    """
+    def taobao_logistics_orders_get(self, request: BaseRequest, session: str):
+        return self._client.execute_with_session(request.get_api_name(), request.to_dict(), request.get_file_param_dict(), session)
     """
         更新交易的销售属性
     """

@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-du3t-lla8qeu7jy9r9t+8_ikc5ksjg&&ky87lfc11=quk^%7we
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 
@@ -41,12 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders', #跨域请求 》 下面中间件也要
     'top'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',# 中间件添加，注意插方位置
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -124,3 +126,9 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# 跨域请求设置
+CORS_ALLOW_CREDENTIALS = True #解决跨域
+CORS_ORIGIN_ALLOW_ALL = True #解决跨域
+CORS_ALLOW_HEADERS = ("*") #解决跨域
